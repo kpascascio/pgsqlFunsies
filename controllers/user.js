@@ -11,8 +11,7 @@ router.post('/', function(req, res){
 
 		User.create({
 			username: username,
-			passwordhash: bcrypt.hashSync(pass, 10),
-			email: req.body.user.email
+			passwordhash: bcrypt.hashSync(pass, 10)
 		}).then(
 			function createSuccess(user){
 				var token = jwt.sign({id:user.id}, "i_am_secret", {expiresIn: 60*60*24});

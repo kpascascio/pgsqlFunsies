@@ -1,6 +1,6 @@
 var Sequelize = require('sequelize');
 
-var seq = new Sequelize('workoutlog', 'postgres', 'k12323',{
+var seq = new Sequelize('workoutlog1', 'postgres', 'k12323',{
 	dialect: 'postgres'
 });
 
@@ -16,5 +16,5 @@ seq.authenticate().then(
 var User = seq.import('./models/user');
 var Definition = seq.import('./models/definition')
 var Log = seq.import('./models/log')
-
+seq.sync()
 module.exports = seq
